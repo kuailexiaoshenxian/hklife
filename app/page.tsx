@@ -29,7 +29,7 @@ export default function Home() {
     <main>
       <nav className="nav shell" aria-label="主导航">
         <a className="brand" href="#top" aria-label="HKLife 首页"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></a>
-        <div className="nav-links"><a href="#paths">生活指南</a><a href="#tools">实用工具</a><a href="#timeline">我的路线</a><a href="#community">社区</a></div>
+        <div className="nav-links"><a href="#paths">高/优才申请</a><a href="#paths">生活指南</a><a href="#tools">实用工具</a><a href="#timeline">我的路线</a><a href="#community">社区</a></div>
         <div className="nav-actions"><button className="lang" aria-label="切换语言">中 / EN</button><a className="login" href="#join">登录</a><a className="nav-cta" href="#ai">问问 AI <span>↗</span></a></div>
       </nav>
 
