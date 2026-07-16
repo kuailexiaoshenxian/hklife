@@ -12,6 +12,7 @@ const paths = [
 
 const guides = [
   { tag: "高/优才申请", title: "香港高才通怎么申请？A、B、C类条件、材料、费用与完整流程", meta: "14 分钟阅读 · 2026年7月更新", tone: "guide-green", href: "/guides/top-talent-pass-application" },
+  { tag: "高/优才申请", title: "香港高才通与优才常见问题：申请、受养人、续签与永居 FAQ", meta: "18 个高频问题 · 2026年7月核对", tone: "guide-faq", href: "/guides/talent-application-faq" },
   { tag: "孩子", title: "香港建档完整流程：时间、材料与医院选择", meta: "15 分钟阅读 · 附清单", tone: "guide-orange" },
   { tag: "生活", title: "第一次在香港租房：避坑指南与真实预算", meta: "10 分钟阅读 · 新手必读", tone: "guide-blue" },
 ];
@@ -59,6 +60,11 @@ export default function Home() {
           </div>
           <div className="talent-feature-art" aria-hidden="true"><span>HK</span><b>高才通</b><small>APPLICATION GUIDE</small></div>
         </div>
+        <a className="talent-faq-card" href="/guides/talent-application-faq">
+          <span className="talent-faq-mark">FAQ</span>
+          <div><span className="article-status">新文章 · 2026年7月核对</span><h3>申请高才通与优才，大家最常问什么？</h3><p>从“我该选哪个计划”到学历、收入、受养人、续签和永居，18个高频问题逐一详细回答。</p></div>
+          <span className="talent-faq-arrow">阅读 FAQ →</span>
+        </a>
       </section>
 
       <section className="paths shell" id="paths">
@@ -78,7 +84,7 @@ export default function Home() {
 
       <section className="timeline shell" id="timeline"><div className="timeline-card"><div className="timeline-copy"><span className="section-kicker">YOUR LIFE TIMELINE</span><h2>每个家庭，都有一条<br/>独一无二的香港路线。</h2><p>记录重要时刻，管理下一步，把你的经验变成能帮助别人的路线图。</p><a className="dark-btn" href="#join">创建我的时间线 →</a></div><div className="life-map"><div className="map-user"><span>安</span><div><b>安安家的香港路线</b><small>2025 年 8 月来到香港</small></div><i>公开</i></div><div className="map-line"><div className="map-item done"><span>✓</span><div><small>2025 · 08</small><b>高才通获批，第一次来到香港</b></div></div><div className="map-item done"><span>✓</span><div><small>2025 · 09</small><b>完成开户与租房</b></div></div><div className="map-item active"><span>●</span><div><small>2026 · 03</small><b>迎接宝宝出生</b></div><em>当前阶段</em></div><div className="map-item future"><span>○</span><div><small>2027 · 09</small><b>计划申请幼儿园</b></div></div></div><div className="share-note">↗ 已有 236 人参考了这条路线</div></div></div></section>
 
-      <section className="guides shell" id="guides"><div className="section-heading"><div><span className="section-kicker">LATEST GUIDES</span><h2>最近更新的实用指南</h2></div><a href="#all">查看全部文章 →</a></div><div className="guide-grid">{guides.map((g,i)=><article className="guide-card" key={g.title}><div className={`guide-art ${g.tone}`}><span>0{i+1}</span><i>{i===0?"HK":i===1?"＋":"⌂"}</i></div><div className="guide-body"><span>{g.tag}</span><h3>{g.title}</h3><small>{g.meta}</small><a href={g.href ?? "#read"} aria-label={`阅读 ${g.title}`}>↗</a></div></article>)}</div></section>
+      <section className="guides shell" id="guides"><div className="section-heading"><div><span className="section-kicker">LATEST GUIDES</span><h2>最近更新的实用指南</h2></div><a href="#all">查看全部文章 →</a></div><div className="guide-grid">{guides.map((g,i)=><article className="guide-card" key={g.title}><div className={`guide-art ${g.tone}`}><span>0{i+1}</span><i>{i===0?"HK":i===1?"?":i===2?"＋":"⌂"}</i></div><div className="guide-body"><span>{g.tag}</span><h3>{g.title}</h3><small>{g.meta}</small><a href={g.href ?? "#read"} aria-label={`阅读 ${g.title}`}>↗</a></div></article>)}</div></section>
 
       <section className="join" id="join"><div className="shell join-inner"><div><span className="join-mark">H</span><h2>准备好开始你的<br/>香港新生活了吗？</h2><p>加入 HKLife，让每一步都有答案。</p></div><div className="join-actions"><a href="#top" className="join-primary">免费创建我的路线 <span>→</span></a><small>无需信用卡 · 永久免费使用基础功能</small></div></div></section>
       <footer><div className="shell footer-grid"><div><a className="brand footer-brand" href="#top"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></a><p>Everything about starting<br/>a new life in Hong Kong.</p></div><div><b>探索</b><a href="#paths">身份</a><a href="#paths">生活</a><a href="#paths">孩子</a><a href="#paths">创业</a><a href="#paths">财富</a></div><div><b>产品</b><a href="#tools">实用工具</a><a href="#ai">AI 顾问</a><a href="#timeline">我的路线</a><a href="#community">社区</a></div><div><b>关于</b><a href="#about">关于我们</a><a href="#contact">联系我们</a><a href="#privacy">隐私政策</a><a href="#terms">使用条款</a></div><div className="newsletter"><b>每周一封，帮你把香港生活想清楚</b><div><input placeholder="你的邮箱" aria-label="订阅邮箱"/><button aria-label="提交订阅">→</button></div><small>已有 12,000+ 位读者订阅</small></div></div><div className="shell copyright"><span>© 2026 HKLife.ai</span><span>Made with care in Hong Kong 🇭🇰</span></div></footer>
