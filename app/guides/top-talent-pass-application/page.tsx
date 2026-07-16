@@ -13,6 +13,40 @@ const officialSources = [
   ["香港入境事务处：指明计划签证申请收费", "https://www.immd.gov.hk/hkt/specifiedschemes.html"],
 ];
 
+const governmentApplicationUrl = "https://www.gov.hk/sc/nonresidents/visarequire/visasentrypermits/applyttps.htm";
+
+const documentGroups = [
+  { label: "A、B、C类通用", tone: "green", items: [
+    ["申请人近照", "必须提交", "1份"],
+    ["有效旅行证件", "必须提交；如正在香港，还要包括最近一次入境或逗留记录。未获发旅行证件的内地居民可提交居民身份证", "5份"],
+    ["香港身份证", "如有", "1份"],
+    ["赴港工作同意书", "只适用于内地居民，由现工作单位或内地有关机关签发", "1份"],
+    ["其他身份或居留证明", "澳门居民、台湾居民，以及持中国护照而居于海外的中国公民按身份提交", "5份"],
+  ]},
+  { label: "A类专属", tone: "gold", items: [
+    ["工作经验证明", "港府网上申请材料表列为A类必须提交的文件", "5份"],
+    ["全年收入证明", "证明紧接申请前一年从受雇及／或所拥有公司取得的全年收入达到港币250万元或等值外币", "5份"],
+    ["受雇收入佐证", "例如薪俸税评税通知书、完税证明、公司发出的股票期权价值证明", "并入收入证明"],
+    ["自有公司收入佐证", "例如企业所得税评税通知书、完税证明、经审计财务报告、营业损益表或利得税报税表", "并入收入证明"],
+  ]},
+  { label: "B类专属", tone: "blue", items: [
+    ["学士学位毕业证书及成绩单", "须显示学位由合资格大学综合名单内的院校颁授", "5份"],
+    ["学士学位学历认证文件", "必须提交", "5份"],
+    ["工作经验证明", "证明申请前五年内累计至少三年毕业后全职或自雇工作经验", "5份"],
+  ]},
+  { label: "C类专属", tone: "violet", items: [
+    ["学士学位毕业证书及成绩单", "须显示学位由合资格大学综合名单内的院校颁授", "5份"],
+    ["学士学位学历认证文件", "必须提交", "5份"],
+  ]},
+];
+
+const dependantDocuments = [
+  ["受养人近照", "必须提交", "1份"],
+  ["受养人有效旅行证件", "必须提交；如正在香港，还要包括最近一次入境或逗留记录", "5份"],
+  ["与主申请人的关系证明", "例如结婚证、出生证、户口簿；港府页面也列有家庭照片及家庭书信等例子", "1份"],
+  ["其他身份或居留证明", "澳门居民、台湾居民，以及持中国护照而居于海外的中国公民按身份提交", "5份"],
+];
+
 export default function TopTalentPassGuide() {
   return <main className="article-page">
     <nav className="nav shell article-nav" aria-label="主导航">
@@ -26,7 +60,7 @@ export default function TopTalentPassGuide() {
       <span className="article-category">高/优才申请</span>
       <h1>香港高才通怎么申请？<br/>A、B、C类条件、材料、费用与完整流程</h1>
       <p>面向准备申请香港高端人才通行证计划的人士，从资格判断到网上递交，把真正会影响申请结果的步骤一次讲清楚。</p>
-      <div className="article-meta"><span>HKLife 编辑部</span><span>·</span><span>2026年7月16日更新</span><span>·</span><span>约14分钟阅读</span></div>
+      <div className="article-meta"><span>HKLife 编辑部</span><span>·</span><span>2026年7月16日更新</span><span>·</span><span>约16分钟阅读</span></div>
     </header>
 
     <div className="article-layout shell">
@@ -52,12 +86,25 @@ export default function TopTalentPassGuide() {
         <p>判断时应直接查询申请当日的<a href="https://www.immd.gov.hk/pdf/aggregate_list.pdf" target="_blank" rel="noreferrer">合资格大学综合名单</a>，不要只看旧文章里的“世界百强”截图。</p>
         <ul><li>核心是符合要求的学士学位，名校硕士或博士不能替代不合资格的本科。</li><li>学历水平须相当于香港认可的学士学位；名誉学士学位不获接受。</li><li>合资格大学的持续教育学院、分校、延伸学院或附属学院学历，不一定获接受。</li><li>B类工作经验是毕业后累计的全职或自雇工作经验。</li><li>B类和C类还需提交认可第三方机构或颁授院校发出的学历认证文件，并提供在线验证资料。</li></ul>
 
-        <h2 id="documents">开始申请前，需要准备哪些材料？</h2>
-        <h3>所有申请人通常都要准备</h3>
-        <ul><li>近期证件照；</li><li>有效旅行证件或适用身份证明；</li><li>香港身份证，如已经持有；</li><li>内地申请人适用的赴港工作同意书；</li><li>非中文或英文文件的合规认证翻译件。</li></ul>
-        <h3>A类额外准备</h3><p>申请前一年收入证明、税务文件、薪酬证明或公司财务资料；如收入来自自有公司，还要准备持股及业务收入证明。</p>
-        <h3>B类和C类额外准备</h3><p>正式学士学位毕业证书、学业成绩单及学历认证文件。B类还须提交至少三年毕业后全职或自雇工作经验证明，材料应写明任职单位、职位、工作性质和准确起止日期。</p>
-        <h3>携带受养人</h3><p>申请人可为符合条件的配偶及18岁以下未婚子女申请受养人签证。通常需准备照片、旅行证件、结婚证或出生证明等关系材料，以及按个案要求提供生活保障和住所资料。获批受养人的逗留期限一般与主申请人挂钩，按现行政策可在香港就业及就读。</p>
+        <div className="section-title-row"><h2 id="documents">开始申请前，需要准备哪些材料？</h2><a className="official-link" href={governmentApplicationUrl} target="_blank" rel="noreferrer">查看港府要求 <span>↗</span></a></div>
+        <p>先准备所有类别通用的文件，再按A、B、C类补齐专属证明。下面的“最多上传”是港府网上系统对该项材料允许上传的档案数量，不是要求你必须凑够的份数。</p>
+        <div className="document-groups">
+          {documentGroups.map(group => <section className={`document-card ${group.tone}`} key={group.label}>
+            <div className="document-card-head"><h3>{group.label}</h3><span>{group.items.length}项</span></div>
+            <div className="document-list">{group.items.map(([name, detail, limit]) => <div className="document-item" key={name}>
+              <span className="document-check">✓</span><div><b>{name}</b><p>{detail}</p></div><small>最多上传<br/><strong>{limit}</strong></small>
+            </div>)}</div>
+          </section>)}
+        </div>
+
+        <h3>随行受养人需要准备什么？</h3>
+        <p>每名随行受养人单独准备一套材料。适用的受养人包括符合条件的配偶，以及18岁以下未婚子女。</p>
+        <div className="dependant-list">{dependantDocuments.map(([name, detail, limit]) => <div className="document-item" key={name}>
+          <span className="document-check">✓</span><div><b>{name}</b><p>{detail}</p></div><small>最多上传<br/><strong>{limit}</strong></small>
+        </div>)}</div>
+
+        <aside className="upload-spec"><div><b>上传前统一检查</b><p>文件格式：JPEG、PDF、GIF、PNG或TIF</p></div><div><b>每个档案不超过5MB</b><p>无照片文件可用灰阶；含照片文件应使用彩色</p></div></aside>
+        <p className="note">港府注明星号项目必须提交，但“如有”或“只适用于某类人士”的文件仍按个人情况准备。申请过程中，入境处也可能要求补充文件。</p>
 
         <h2 id="steps">网上申请分几步？</h2>
         <ol className="steps"><li><b>确定申请类别</b><span>根据收入、毕业院校、毕业时间和工作经验选择A、B或C类。</span></li><li><b>整理电子文件</b><span>检查姓名、证件号码、工作日期、收入数字和学历信息是否一致。</span></li><li><b>网上填写并缴费</b><span>通过<a href="https://www.gov.hk/sc/nonresidents/visarequire/visasentrypermits/applyttps.htm" target="_blank" rel="noreferrer">香港政府一站通</a>填写资料、上传文件并缴付申请费。</span></li><li><b>保存申请记录</b><span>保存申请编号、确认书、付款记录和最终提交版本。</span></li><li><b>留意补件和结果</b><span>入境处在收到全部材料和申请费后，一般约需四星期处理；期间应检查邮箱及垃圾邮件。</span></li></ol>
