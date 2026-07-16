@@ -1,0 +1,35 @@
+.talent-faq-card {
+  margin-top: 16px; border: 1px solid #ded8ee; background: #f5f1fb; border-radius: 18px;
+  padding: 24px 28px; display: grid; grid-template-columns: 74px 1fr auto; gap: 23px;
+  align-items: center; transition: .2s ease;
+}
+.talent-faq-card:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(58,43,87,.09); }
+.talent-faq-mark { width: 66px; height: 66px; border-radius: 50%; background: #5c477e; color: #fff; display: grid; place-items: center; font-family: Georgia,serif; font-size: 16px; letter-spacing: 1px; }
+.talent-faq-card h3 { font-family: var(--serif); font-size: 23px; margin: 10px 0 5px; }
+.talent-faq-card p { font-size: 12px; line-height: 1.7; color: #6f687a; margin: 0; }
+.talent-faq-arrow { font-size: 11px; font-weight: 800; color: #5c477e; white-space: nowrap; }
+.guide-faq { background: #e9e1f4; }
+.guide-faq i { color: #725c92; }
+.faq-group { margin-top: 45px; }
+.faq-group > h2 { margin-bottom: 8px; }
+.faq-group-intro { color: #748079; font-size: 13px; }
+.faq-list { border-top: 1px solid #dfe7e3; margin-top: 20px; }
+.faq-item { padding: 24px 0; border-bottom: 1px solid #dfe7e3; }
+.faq-question { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+.faq-question span { width: 29px; height: 29px; border-radius: 50%; background: #e8f3ee; color: #27684f; display: grid; place-items: center; font-family: Georgia,serif; font-size: 10px; }
+.faq-question h3 { margin: 2px 0 11px; font-size: 17px; }
+.faq-answer { padding-left: 46px; }
+.faq-answer p:last-child { margin-bottom: 0; }
+.faq-answer ul { margin-top: 7px; }
+.faq-callout { background: #f4f0fa; border: 1px solid #e5dcef; border-radius: 12px; padding: 19px 21px; margin: 25px 0; }
+.faq-callout b { color: #5c477e; }
+.faq-callout p { font-size: 13px; margin: 6px 0 0; }
+.faq-pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.faq-pill-row span { font-size: 10px; padding: 6px 9px; border-radius: 999px; background: #edf3f0; color: #4e675d; }
+@media (max-width: 640px) {
+  .talent-faq-card { grid-template-columns: 52px 1fr; padding: 20px 18px; gap: 15px; }
+  .talent-faq-mark { width: 48px; height: 48px; font-size: 12px; }
+  .talent-faq-card h3 { font-size: 19px; }
+  .talent-faq-arrow { grid-column: 2; }
+  .faq-answer { padding-left: 0; margin-top: 12px; }
+}
