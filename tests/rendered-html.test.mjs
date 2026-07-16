@@ -23,6 +23,7 @@ test("renders the HKLife homepage and talent guide entry", async () => {
   assert.match(html, /香港高才通申请指南/);
   assert.match(html, /href="\/guides\/top-talent-pass-application"/);
   assert.match(html, /href="\/guides\/talent-application-faq"/);
+  assert.match(html, /<div class="nav-links"><a href="\/guides\/top-talent-pass-application">高\/优才申请/);
 });
 
 test("renders the full top talent pass application guide", async () => {
@@ -33,6 +34,9 @@ test("renders the full top talent pass application guide", async () => {
   assert.match(html, /快速结论/);
   assert.match(html, /申请高才通需要多少钱/);
   assert.match(html, /香港入境事务处：高端人才通行证计划/);
+  assert.match(html, /aria-label="高优才文章目录"/);
+  assert.match(html, /aria-current="page"/);
+  assert.match(html, /href="\/guides\/talent-application-faq"/);
 });
 
 test("renders the talent application FAQ guide", async () => {
@@ -43,4 +47,7 @@ test("renders the talent application FAQ guide", async () => {
   assert.match(html, /现行的优才还是80分制吗/);
   assert.match(html, /18件事/);
   assert.match(html, /香港入境事务处：优秀人才入境计划/);
+  assert.match(html, /aria-label="高优才文章目录"/);
+  assert.match(html, /aria-current="page"/);
+  assert.match(html, /href="\/guides\/top-talent-pass-application"/);
 });
