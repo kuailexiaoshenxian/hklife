@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 const paths = [
   { icon: "✦", title: "身份", desc: "从来港到永久居民，每一步都有清晰答案", items: ["高才通", "优才", "受养人", "续签", "永居", "香港身份证"], color: "mint" },
@@ -19,7 +20,6 @@ const guides = [
 
 export default function Home() {
   const [query, setQuery] = useState("");
-  const [active, setActive] = useState("全部");
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
@@ -30,7 +30,7 @@ export default function Home() {
     <main>
       <nav className="nav shell" aria-label="主导航">
         <a className="brand" href="#top" aria-label="HKLife 首页"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></a>
-        <div className="nav-links"><a href="#talent-guides">高/优才申请</a><a href="#paths">生活指南</a><a href="#tools">实用工具</a><a href="#timeline">我的路线</a><a href="#community">社区</a></div>
+        <div className="nav-links"><Link href="/guides/top-talent-pass-application">高/优才申请</Link><a href="#paths">生活指南</a><a href="#tools">实用工具</a><a href="#timeline">我的路线</a><a href="#community">社区</a></div>
         <div className="nav-actions"><button className="lang" aria-label="切换语言">中 / EN</button><a className="login" href="#join">登录</a><a className="nav-cta" href="#ai">问问 AI <span>↗</span></a></div>
       </nav>
 

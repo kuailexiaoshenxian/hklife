@@ -10,6 +10,25 @@
 .talent-faq-arrow { font-size: 11px; font-weight: 800; color: #5c477e; white-space: nowrap; }
 .guide-faq { background: #e9e1f4; }
 .guide-faq i { color: #725c92; }
+.article-nav .nav-links .active { color: var(--green); font-weight: 750; }
+.talent-reader { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; align-items: start; }
+.talent-reader-main { min-width: 0; }
+.talent-reader .article-hero { width: 100%; max-width: none; }
+.talent-reader .article-layout { width: 100%; grid-template-columns: 155px minmax(0, 1fr); gap: 44px; justify-content: stretch; }
+.talent-directory { position: sticky; top: 26px; margin-top: 158px; border: 1px solid #dfe7e3; border-radius: 16px; background: #fbfdfc; padding: 20px 14px 14px; }
+.talent-directory-heading { padding: 0 7px 17px; border-bottom: 1px solid #e4eae7; }
+.talent-directory-heading span { color: #5b8977; font-size: 8px; font-weight: 800; letter-spacing: 1.8px; }
+.talent-directory-heading h2 { margin: 7px 0 4px; font-family: var(--serif); font-size: 21px; color: #18372d; }
+.talent-directory-heading p { margin: 0; color: #8a9690; font-size: 10px; }
+.talent-directory nav { display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+.talent-directory nav a { display: grid; grid-template-columns: 27px minmax(0, 1fr) 12px; gap: 8px; align-items: start; border-radius: 10px; padding: 12px 9px; color: #53615b; transition: .18s ease; }
+.talent-directory nav a:hover { background: #edf5f1; color: #245e49; }
+.talent-directory nav a.active { background: #e4f1eb; color: #174d3a; box-shadow: inset 3px 0 #2f8767; }
+.talent-directory nav a > span { padding-top: 2px; font-family: Georgia, serif; font-size: 10px; color: #8a9b94; }
+.talent-directory nav a div { display: flex; min-width: 0; flex-direction: column; gap: 4px; }
+.talent-directory nav a b { font-size: 12px; line-height: 1.45; }
+.talent-directory nav a small { color: #8a9690; font-size: 8px; line-height: 1.5; }
+.talent-directory nav a i { padding-top: 1px; font-size: 10px; font-style: normal; opacity: .7; }
 .faq-group { margin-top: 45px; }
 .faq-group > h2 { margin-bottom: 8px; }
 .faq-group-intro { color: #748079; font-size: 13px; }
@@ -32,4 +51,17 @@
   .talent-faq-card h3 { font-size: 19px; }
   .talent-faq-arrow { grid-column: 2; }
   .faq-answer { padding-left: 0; margin-top: 12px; }
+  .talent-directory nav { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .talent-reader { grid-template-columns: 1fr; gap: 0; }
+  .talent-directory { position: static; margin-top: 28px; }
+  .talent-directory nav { display: grid; grid-template-columns: 1fr 1fr; }
+  .talent-reader .article-hero { padding-top: 42px; }
+  .talent-reader .article-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .talent-directory nav { grid-template-columns: 1fr; }
 }

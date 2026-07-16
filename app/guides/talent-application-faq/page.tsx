@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { TalentGuideDirectory } from "../talent-guide-directory";
 
 export const metadata: Metadata = {
   title: "香港高才通与优才常见问题 FAQ：申请、受养人、续签与永居 | HKLife",
@@ -24,19 +25,22 @@ export default function TalentApplicationFaq() {
   return <main className="article-page">
     <nav className="nav shell article-nav" aria-label="主导航">
       <Link className="brand" href="/" aria-label="HKLife 首页"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></Link>
-      <div className="nav-links"><Link href="/#talent-guides">高/优才申请</Link><Link href="/#paths">生活指南</Link><Link href="/#tools">实用工具</Link><Link href="/#timeline">我的路线</Link></div>
+      <div className="nav-links"><Link className="active" href="/guides/top-talent-pass-application">高/优才申请</Link><Link href="/#paths">生活指南</Link><Link href="/#tools">实用工具</Link><Link href="/#timeline">我的路线</Link></div>
       <Link className="nav-cta" href="/">返回首页 <span>↗</span></Link>
     </nav>
 
-    <header className="article-hero shell">
-      <div className="article-breadcrumb"><Link href="/">首页</Link><span>›</span><Link href="/#talent-guides">高/优才申请</Link><span>›</span><b>常见问题</b></div>
+    <div className="talent-reader shell">
+      <TalentGuideDirectory activeHref="/guides/talent-application-faq" />
+      <div className="talent-reader-main">
+    <header className="article-hero">
+      <div className="article-breadcrumb"><Link href="/">首页</Link><span>›</span><Link href="/guides/top-talent-pass-application">高/优才申请</Link><span>›</span><b>常见问题</b></div>
       <span className="article-category">高/优才申请 · FAQ</span>
       <h1>香港高才通与优才常见问题：<br/>申请前大家最想知道的18件事</h1>
       <p>我们把申请人常在 Google、必应输入的问题，按真实决策顺序重新整理，并用香港入境处最新公开规则逐一回答。</p>
       <div className="article-meta"><span>HKLife 编辑部</span><span>·</span><span>2026年7月16日核对</span><span>·</span><span>约14分钟阅读</span></div>
     </header>
 
-    <div className="article-layout shell">
+    <div className="article-layout">
       <aside className="article-toc" aria-label="文章目录"><b>本文目录</b><a href="#choose">怎么选计划</a><a href="#qualification">资格与证明</a><a href="#apply">递交与审批</a><a href="#family">受养人</a><a href="#renewal">续签与永居</a><a href="#sources">官方来源</a></aside>
       <article className="article-content">
         <section className="quick-answer"><b>先记住三句话</b><p><strong>高才通是符合A、B、C类其中一类即可申请；优才现行综合计分制不是旧式打分，而是12项准则中至少符合6项。</strong>两者首次申请都不要求先取得香港聘用，但达到门槛并不等于保证获批。</p><small>政策核对至：2026年7月16日</small></section>
@@ -80,6 +84,8 @@ export default function TalentApplicationFaq() {
 
         <section className="sources" id="sources"><h2>官方来源</h2><p>本文为公开政策与常见搜索问题整理，不构成法律意见，也不能替代入境处对个案的决定。政策、名单及收费可能调整，请在递交当天再次核对。</p><ul>{sources.map(([title,url])=><li key={url}><a href={url} target="_blank" rel="noreferrer">{title}</a><span>核对日期：2026年7月16日</span></li>)}</ul></section>
       </article>
+    </div>
+      </div>
     </div>
     <footer className="article-footer"><div className="shell"><Link className="brand footer-brand" href="/"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></Link><p>Everything about starting a new life in Hong Kong.</p></div></footer>
   </main>;

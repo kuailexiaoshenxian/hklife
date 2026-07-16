@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { TalentGuideDirectory } from "../talent-guide-directory";
 
 export const metadata: Metadata = {
   title: "香港高才通怎么申请？A、B、C类条件、材料、费用与完整流程 | HKLife",
@@ -50,20 +52,23 @@ const dependantDocuments = [
 export default function TopTalentPassGuide() {
   return <main className="article-page">
     <nav className="nav shell article-nav" aria-label="主导航">
-      <a className="brand" href="/" aria-label="HKLife 首页"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></a>
-      <div className="nav-links"><a href="/#talent-guides">高/优才申请</a><a href="/#paths">生活指南</a><a href="/#tools">实用工具</a><a href="/#timeline">我的路线</a></div>
-      <a className="nav-cta" href="/">返回首页 <span>↗</span></a>
+      <Link className="brand" href="/" aria-label="HKLife 首页"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></Link>
+      <div className="nav-links"><Link className="active" href="/guides/top-talent-pass-application">高/优才申请</Link><Link href="/#paths">生活指南</Link><Link href="/#tools">实用工具</Link><Link href="/#timeline">我的路线</Link></div>
+      <Link className="nav-cta" href="/">返回首页 <span>↗</span></Link>
     </nav>
 
-    <header className="article-hero shell">
-      <div className="article-breadcrumb"><a href="/">首页</a><span>›</span><a href="/#talent-guides">高/优才申请</a><span>›</span><b>高才通申请</b></div>
+    <div className="talent-reader shell">
+      <TalentGuideDirectory activeHref="/guides/top-talent-pass-application" />
+      <div className="talent-reader-main">
+    <header className="article-hero">
+      <div className="article-breadcrumb"><Link href="/">首页</Link><span>›</span><Link href="/guides/top-talent-pass-application">高/优才申请</Link><span>›</span><b>高才通申请</b></div>
       <span className="article-category">高/优才申请</span>
       <h1>香港高才通怎么申请？<br/>A、B、C类条件、材料、费用与完整流程</h1>
       <p>面向准备申请香港高端人才通行证计划的人士，从资格判断到网上递交，把真正会影响申请结果的步骤一次讲清楚。</p>
       <div className="article-meta"><span>HKLife 编辑部</span><span>·</span><span>2026年7月16日更新</span><span>·</span><span>约16分钟阅读</span></div>
     </header>
 
-    <div className="article-layout shell">
+    <div className="article-layout">
       <aside className="article-toc" aria-label="文章目录"><b>本文目录</b><a href="#quick">快速结论</a><a href="#categories">A、B、C类怎么选</a><a href="#income">A类收入怎么算</a><a href="#university">大学是否合资格</a><a href="#documents">申请材料</a><a href="#steps">申请流程</a><a href="#fees">费用</a><a href="#after">获批后</a><a href="#mistakes">常见误区</a></aside>
 
       <article className="article-content">
@@ -125,6 +130,8 @@ export default function TopTalentPassGuide() {
         <section className="sources"><h2>官方来源</h2><p>本文仅提供公开政策和办事路径整理，不构成针对个人情况的法律意见。</p><ul>{officialSources.map(([title, url]) => <li key={url}><a href={url} target="_blank" rel="noreferrer">{title}</a><span>核对日期：2026年7月16日</span></li>)}</ul></section>
       </article>
     </div>
-    <footer className="article-footer"><div className="shell"><a className="brand footer-brand" href="/"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></a><p>Everything about starting a new life in Hong Kong.</p></div></footer>
+      </div>
+    </div>
+    <footer className="article-footer"><div className="shell"><Link className="brand footer-brand" href="/"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></Link><p>Everything about starting a new life in Hong Kong.</p></div></footer>
   </main>;
 }
