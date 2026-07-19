@@ -53,7 +53,7 @@ export default function TopTalentPassGuide() {
   return <main className="article-page">
     <nav className="nav shell article-nav" aria-label="主导航">
       <Link className="brand" href="/" aria-label="HKLife 首页"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></Link>
-      <div className="nav-links"><Link className="active" href="/guides/top-talent-pass-application">高/优才申请</Link><Link href="/#paths">生活指南</Link><Link href="/#tools">实用工具</Link><Link href="/#timeline">我的路线</Link></div>
+      <div className="nav-links"><Link className="active" href="/guides/top-talent-pass-application">高/优才申请</Link><Link href="/guides/hong-kong-savings-insurance">生活指南</Link><Link href="/#tools">实用工具</Link><Link href="/#timeline">我的路线</Link></div>
       <Link className="nav-cta" href="/">返回首页 <span>↗</span></Link>
     </nav>
 
