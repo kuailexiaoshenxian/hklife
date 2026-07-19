@@ -65,6 +65,11 @@ test("renders the Hong Kong savings insurance guide", async () => {
   assert.match(html, /什么是分红实现率/);
   assert.match(html, /购买香港储蓄险，建议按这6步筛选/);
   assert.match(html, /香港保险业监管局：认识分红实现率/);
+  assert.match(html, /其他主要保险公司：同一统计口径/);
+  assert.match(html, /终期红利/);
+  assert.match(html, /宏利/);
+  assert.match(html, /Sun Life永明/);
+  assert.match(html, /10Life：2025年保险公司分红实现率比较/);
   assert.match(html, /aria-label="生活指南文章目录"/);
   assert.match(html, /aria-current="page"/);
   assert.match(html, /href="\/guides\/hong-kong-savings-insurance"/);

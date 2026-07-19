@@ -13,13 +13,64 @@ const comparisonRows = [
   ["复归红利", "92%", "81%", "100%", "70%"],
 ];
 
-const officialSources = [
-  ["香港保险业监管局：认识分红实现率", "https://www.ia.org.hk/sc/fulfillment_ratio/index.html"],
-  ["香港保险业监管局：分红实现率常见问题", "https://www.ia.org.hk/sc/fulfillment_ratio/faq.html"],
-  ["香港保险业监管局：保险公司披露网站列表", "https://www.ia.org.hk/sc/fulfillment_ratio/list_of_insurer.html"],
-  ["香港保险业监管局：认识分红保单", "https://www.ia.org.hk/sc/participating_policy/index.html"],
-  ["友邦香港：分红产品及分红实现率", "https://www.aia.com.hk/zh-cn/products/further-product-information/participating-products/fulfillment-ratio"],
-  ["保诚香港：分红计划过往表现及履行比率", "https://www.prudential.com.hk/performance/fulfillment-ratio/tc/index.html"],
+type MarketRow = readonly [insurer: string, average: string, aboveSeventy: string, points: string, range: string];
+
+const terminalDividendRows: MarketRow[] = [
+  ["中银人寿", "91%", "100%", "39", "72% – 100%"],
+  ["中国人寿", "100%", "100%", "15", "100% – 100%"],
+  ["中国太平", "100%", "100%", "15", "98% – 100%"],
+  ["友邦香港", "102%", "100%", "112", "74% – 169%"],
+  ["AXA安盛", "95%", "92%", "159", "50% – 116%"],
+  ["安达人寿", "84%", "83%", "29", "64% – 107%"],
+  ["周大福人寿", "94%", "89%", "172", "21% – 109%"],
+  ["富邦人寿", "N.A.", "N.A.", "N.A.", "N.A."],
+  ["富卫", "87%", "75%", "114", "50% – 115%"],
+  ["恒生保险", "141%", "100%", "63", "100% – 1022%"],
+  ["香港人寿", "94%", "86%", "29", "69% – 100%"],
+  ["汇丰保险", "102%", "100%", "69", "86% – 128%"],
+  ["宏利", "107%", "100%", "50", "76% – 130%"],
+  ["保诚保险", "78%", "53%", "234", "3% – 104%"],
+  ["Sun Life永明", "84%", "81%", "43", "52% – 100%"],
+  ["万通保险", "97%", "94%", "16", "70% – 101%"],
+];
+
+const annualDividendRows: MarketRow[] = [
+  ["中银人寿", "93%", "98%", "114", "52% – 102%"],
+  ["中国人寿", "82%", "95%", "336", "60% – 109%"],
+  ["中国太平", "100%", "100%", "21", "100% – 103%"],
+  ["友邦香港", "89%", "94%", "249", "64% – 140%"],
+  ["AXA安盛", "94%", "94%", "116", "28% – 117%"],
+  ["安达人寿", "82%", "74%", "145", "25% – 109%"],
+  ["周大福人寿", "96%", "92%", "169", "60% – 140%"],
+  ["富邦人寿", "103%", "100%", "41", "88% – 113%"],
+  ["富卫", "87%", "77%", "275", "35% – 190%"],
+  ["恒生保险", "81%", "63%", "171", "44% – 102%"],
+  ["香港人寿", "96%", "96%", "250", "64% – 100%"],
+  ["汇丰保险", "88%", "90%", "131", "61% – 104%"],
+  ["宏利", "77%", "55%", "346", "20% – 128%"],
+  ["保诚保险", "80%", "83%", "36", "41% – 103%"],
+  ["Sun Life永明", "83%", "76%", "29", "58% – 105%"],
+  ["万通保险", "97%", "100%", "28", "80% – 100%"],
+];
+
+const reversionaryDividendRows: MarketRow[] = [
+  ["中国太平", "100%", "100%", "10", "100% – 101%"],
+  ["友邦香港", "92%", "100%", "26", "76% – 162%"],
+  ["AXA安盛", "98%", "100%", "40", "81% – 100%"],
+  ["安达人寿", "100%", "100%", "9", "100% – 100%"],
+  ["周大福人寿", "100%", "100%", "19", "100% – 101%"],
+  ["保诚保险", "81%", "70%", "198", "12% – 137%"],
+  ["Sun Life永明", "95%", "100%", "44", "83% – 120%"],
+];
+
+const referenceSources = [
+  ["香港保险业监管局：认识分红实现率", "https://www.ia.org.hk/sc/fulfillment_ratio/index.html", "官方"],
+  ["香港保险业监管局：分红实现率常见问题", "https://www.ia.org.hk/sc/fulfillment_ratio/faq.html", "官方"],
+  ["香港保险业监管局：保险公司披露网站列表", "https://www.ia.org.hk/sc/fulfillment_ratio/list_of_insurer.html", "官方"],
+  ["香港保险业监管局：认识分红保单", "https://www.ia.org.hk/sc/participating_policy/index.html", "官方"],
+  ["友邦香港：分红产品及分红实现率", "https://www.aia.com.hk/zh-cn/products/further-product-information/participating-products/fulfillment-ratio", "公司披露"],
+  ["保诚香港：分红计划过往表现及履行比率", "https://www.prudential.com.hk/performance/fulfillment-ratio/tc/index.html", "公司披露"],
+  ["10Life：2025年保险公司分红实现率比较", "https://www.10life.com/zh-HK/blog/Comparing-Dividend-Fulfillment-Ratios-of-savings-insurance-across-Insurers?locale=zh-TW", "第三方汇总"],
 ];
 
 const purchaseChecks = [
@@ -30,6 +81,13 @@ const purchaseChecks = [
   "用悲观情景测试回本期、教育金或退休提取计划",
   "确认提前退保、部分提取、保单贷款及货币转换的影响",
 ];
+
+function MarketFulfillmentTable({ rows }: { rows: MarketRow[] }) {
+  return <div className="table-wrap market-table-wrap"><table className="market-data-table"><thead><tr><th>保险公司</th><th>平均实现率</th><th>高于70%占比</th><th>数据点</th><th>最低 – 最高</th></tr></thead><tbody>{rows.map(row => {
+    const highlighted = row[0] === "友邦香港" || row[0] === "保诚保险";
+    return <tr className={highlighted ? "focus-row" : undefined} key={row[0]}>{row.map((cell,index) => <td key={`${row[0]}-${index}`}>{index === 0 ? <b>{cell}</b> : cell}</td>)}</tr>;
+  })}</tbody></table></div>;
+}
 
 export default function HongKongSavingsInsuranceGuide() {
   return <main className="article-page">
@@ -47,14 +105,14 @@ export default function HongKongSavingsInsuranceGuide() {
           <span className="article-category life-category">香港储蓄险购买</span>
           <h1>友邦和保诚，谁的分红兑现更稳定？<br/>从分红实现率看香港储蓄险</h1>
           <p>计划书上的长期收益不等于保证回报。本文把分红实现率的含义、友邦与保诚的公开披露口径，以及购买储蓄险真正要比较的项目一次讲清楚。</p>
-          <div className="article-meta"><span>HKLife 编辑部</span><span>·</span><span>2026年7月18日更新</span><span>·</span><span>约18分钟阅读</span></div>
+          <div className="article-meta"><span>HKLife 编辑部</span><span>·</span><span>2026年7月19日更新</span><span>·</span><span>约22分钟阅读</span></div>
         </header>
 
         <div className="article-layout">
           <aside className="article-toc" aria-label="文章目录"><b>本文目录</b><a href="#quick">先看结论</a><a href="#meaning">什么是实现率</a><a href="#comparison">友邦与保诚怎么比</a><a href="#averages">为什么不能只看平均值</a><a href="#drivers">差异从哪里来</a><a href="#bonus-types">三类红利</a><a href="#buying">购买时怎么筛选</a><a href="#limits">数据局限</a></aside>
 
           <article className="article-content">
-            <section className="quick-answer life-quick" id="quick"><b>先看结论</b><p>按原稿引用的第三方2025年简单汇总，友邦在三类红利的平均实现率及低值分布上优于保诚，显示该统计口径下的历史兑现更整齐。<strong>但这不能推导为“友邦所有储蓄险都比保诚好”</strong>：官方数据按产品系列和保单年度披露，并不存在一个可直接代表整家公司的官方实现率。</p><small>资料核对至：2026年7月18日</small></section>
+            <section className="quick-answer life-quick" id="quick"><b>先看结论</b><p>按10Life于2025年发布、分析截至2024报告年度数据的简单汇总，友邦在三类红利的平均实现率及低值分布上优于保诚，显示该统计口径下的历史兑现更整齐。<strong>但这不能推导为“友邦所有储蓄险都比保诚好”</strong>：官方数据按产品系列和保单年度披露，并不存在一个可直接代表整家公司的官方实现率。</p><small>资料核对至：2026年7月19日</small></section>
 
             <h2 id="meaning">什么是分红实现率？</h2>
             <p>香港分红保单的利益通常分成保证利益和非保证利益。保证部分按保单条款支付；非保证部分会受投资回报、索偿经验、费用、退保情况及公司的分红政策影响。</p>
@@ -63,9 +121,18 @@ export default function HongKongSavingsInsuranceGuide() {
             <p>香港保监局要求保险公司为符合条件的分红产品披露实现率。数据会按产品系列、保单年度及红利类型分别列出，所以“一家公司只有一个实现率”的理解并不准确。</p>
 
             <h2 id="comparison">友邦与保诚，公开数据应该怎么读？</h2>
-            <p>原稿引用的第三方2025年汇总，把不同产品系列和保单年度作简单平均，得到以下比较：</p>
+            <p>原稿中的数字来自10Life于2025年发布的汇总。该研究分析截至2024报告年度的数据，原始资料覆盖20家保险公司、4,013个数据点及852款分红产品；下表先保留友邦与保诚的直接比较：</p>
             <div className="table-wrap"><table className="comparison-table"><thead><tr><th>红利类型</th><th>友邦平均</th><th>保诚平均</th><th>友邦高于70%</th><th>保诚高于70%</th></tr></thead><tbody>{comparisonRows.map(row => <tr key={row[0]}>{row.map((cell,index) => <td key={`${row[0]}-${index}`}>{index === 0 ? <b>{cell}</b> : cell}</td>)}</tr>)}</tbody></table></div>
-            <div className="source-caution"><b>这张表怎样使用？</b><p>它是原稿所引第三方的简单统计，并非保监局、友邦或保诚发布的“公司评分”。由于没有按保费规模加权，也没有统一产品结构、货币和保单年度，适合用来发现问题，不适合单独决定购买。</p></div>
+            <div className="source-caution"><b>这组统计怎样使用？</b><p>它是10Life按保险公司公开数据整理的第三方简单平均，并非保监局或保险公司发布的官方排名。数据没有按产品销量或保费规模加权，也未统一产品结构、货币和保单年度，适合用来发现差异，不适合单独决定购买。</p></div>
+
+            <h3>其他主要保险公司：同一统计口径</h3>
+            <p>以下三张表来自同一研究口径。友邦与保诚用蓝色标出，方便与其他公司一起观察；“高于70%占比”表示该公司所有纳入统计的数据点中，实现率达到70%以上的比例。</p>
+            <div className="market-data-group">
+              <details className="market-data-details" open><summary><span>终期红利</span><b>16家公司</b></summary><MarketFulfillmentTable rows={terminalDividendRows} /></details>
+              <details className="market-data-details"><summary><span>周年红利</span><b>16家公司</b></summary><MarketFulfillmentTable rows={annualDividendRows} /></details>
+              <details className="market-data-details"><summary><span>复归／归原红利</span><b>7家公司</b></summary><MarketFulfillmentTable rows={reversionaryDividendRows} /></details>
+            </div>
+            <p className="data-footnote">特别留意：恒生保险终期红利最高值达到1022%，属于会显著拉高平均值的极端数据；富邦人寿没有可用的终期红利数据。看到高平均值时，必须同时查看范围、占比和数据点数量。</p>
             <p>在这个统计口径下，可以说友邦近年的数据分布较集中；更严谨的表述则是：<strong>部分友邦产品系列的历史派发与销售演示更接近，而保诚不同产品和年代之间的差异较大。</strong></p>
 
             <h2 id="averages">为什么不能只看平均实现率？</h2>
@@ -92,7 +159,7 @@ export default function HongKongSavingsInsuranceGuide() {
 
             <section className="checklist"><h2>签单前最后自查</h2>{["我知道计划书中多少是保证、多少是非保证","我没有只看第30年或第100年的演示总值","我比较的是相近产品系列和相近保单年度","我看过悲观情景、回本期和提前退保损失","这笔保费不会占用家庭应急资金","我理解历史分红不代表未来表现"].map(item => <label key={item}><input type="checkbox"/> {item}</label>)}</section>
 
-            <section className="sources" id="sources"><h2>官方来源</h2><p>本文根据用户提供的原稿重组，并用官方资料核对分红实现率的定义、使用限制及披露入口。文中的公司平均比较来自原稿所引第三方统计，并非官方排名。本文不构成保险、投资或个别产品建议；购买前应阅读利益说明、产品资料概要及保单条款。</p><ul>{officialSources.map(([title,url]) => <li key={url}><a href={url} target="_blank" rel="noreferrer">{title}</a><span>核对日期：2026年7月18日</span></li>)}</ul></section>
+            <section className="sources" id="sources"><h2>资料来源与口径</h2><p>本文根据用户提供的原稿重组，并用官方资料核对分红实现率的定义、使用限制及披露入口。全市场表格来自10Life对保险公司公开资料的第三方汇总，并非官方排名。本文不构成保险、投资或个别产品建议；购买前应阅读利益说明、产品资料概要及保单条款。</p><ul>{referenceSources.map(([title,url,type]) => <li key={url}><a href={url} target="_blank" rel="noreferrer">{title}</a><span>{type} · 核对日期：2026年7月19日</span></li>)}</ul></section>
           </article>
         </div>
       </div>
