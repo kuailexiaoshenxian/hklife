@@ -22,5 +22,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-Hans"><body>{children}</body></html>;
+  return <html lang="zh-Hans" data-scroll-behavior="smooth"><body>{children}</body></html>;
 }

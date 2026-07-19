@@ -13,7 +13,7 @@ async function render(pathname = "/") {
   );
 }
 
-test("renders the HKLife homepage and talent guide entry", async () => {
+test("renders the HKLife homepage and guide entries", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -23,7 +23,10 @@ test("renders the HKLife homepage and talent guide entry", async () => {
   assert.match(html, /香港高才通申请指南/);
   assert.match(html, /href="\/guides\/top-talent-pass-application"/);
   assert.match(html, /href="\/guides\/talent-application-faq"/);
+  assert.match(html, /href="\/guides\/hong-kong-savings-insurance"/);
+  assert.match(html, /香港储蓄险/);
   assert.match(html, /<div class="nav-links"><a href="\/guides\/top-talent-pass-application">高\/优才申请/);
+  assert.match(html, />生活指南<\/a>/);
 });
 
 test("renders the full top talent pass application guide", async () => {
@@ -37,6 +40,7 @@ test("renders the full top talent pass application guide", async () => {
   assert.match(html, /aria-label="高优才文章目录"/);
   assert.match(html, /aria-current="page"/);
   assert.match(html, /href="\/guides\/talent-application-faq"/);
+  assert.match(html, /href="\/guides\/hong-kong-savings-insurance"/);
 });
 
 test("renders the talent application FAQ guide", async () => {
@@ -50,4 +54,18 @@ test("renders the talent application FAQ guide", async () => {
   assert.match(html, /aria-label="高优才文章目录"/);
   assert.match(html, /aria-current="page"/);
   assert.match(html, /href="\/guides\/top-talent-pass-application"/);
+  assert.match(html, /href="\/guides\/hong-kong-savings-insurance"/);
+});
+
+test("renders the Hong Kong savings insurance guide", async () => {
+  const response = await render("/guides/hong-kong-savings-insurance");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /友邦和保诚，谁的分红兑现更稳定/);
+  assert.match(html, /什么是分红实现率/);
+  assert.match(html, /购买香港储蓄险，建议按这6步筛选/);
+  assert.match(html, /香港保险业监管局：认识分红实现率/);
+  assert.match(html, /aria-label="生活指南文章目录"/);
+  assert.match(html, /aria-current="page"/);
+  assert.match(html, /href="\/guides\/hong-kong-savings-insurance"/);
 });

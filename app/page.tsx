@@ -4,18 +4,18 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 
 const paths = [
-  { icon: "✦", title: "身份", desc: "从来港到永久居民，每一步都有清晰答案", items: ["高才通", "优才", "受养人", "续签", "永居", "香港身份证"], color: "mint" },
-  { icon: "⌂", title: "生活", desc: "把陌生城市，慢慢变成真正的家", items: ["租房", "医疗", "交通", "电话卡", "搬家", "社区生活"], color: "blue" },
-  { icon: "☀", title: "孩子", desc: "从建档、生育到升学的家庭成长地图", items: ["建档", "公立医院", "月嫂", "幼儿园", "小学", "DSE"], color: "peach" },
-  { icon: "↗", title: "创业", desc: "在香港把一个想法，变成一门生意", items: ["公司注册", "数码港", "科学园", "创业补贴", "办公场地", "AI 创业"], color: "violet" },
-  { icon: "◎", title: "财富", desc: "做好银行、税务与家庭资产的长期规划", items: ["香港银行卡", "保险比较", "ETF", "税务", "美元", "家族办公室"], color: "gold" },
+  { icon: "✦", title: "身份", desc: "从来港到永久居民，每一步都有清晰答案", items: ["高才通", "优才", "受养人", "续签", "永居", "香港身份证"], color: "mint", href: "/guides/top-talent-pass-application" },
+  { icon: "⌂", title: "生活", desc: "把陌生城市，慢慢变成真正的家", items: ["租房", "医疗", "交通", "电话卡", "搬家", "香港储蓄险"], color: "blue", href: "/guides/hong-kong-savings-insurance" },
+  { icon: "☀", title: "孩子", desc: "从建档、生育到升学的家庭成长地图", items: ["建档", "公立医院", "月嫂", "幼儿园", "小学", "DSE"], color: "peach", href: "#guides" },
+  { icon: "↗", title: "创业", desc: "在香港把一个想法，变成一门生意", items: ["公司注册", "数码港", "科学园", "创业补贴", "办公场地", "AI 创业"], color: "violet", href: "#guides" },
+  { icon: "◎", title: "财富", desc: "做好银行、税务与家庭资产的长期规划", items: ["香港银行卡", "保险比较", "ETF", "税务", "美元", "家族办公室"], color: "gold", href: "#guides" },
 ];
 
 const guides = [
   { tag: "高/优才申请", title: "香港高才通怎么申请？A、B、C类条件、材料、费用与完整流程", meta: "14 分钟阅读 · 2026年7月更新", tone: "guide-green", href: "/guides/top-talent-pass-application" },
   { tag: "高/优才申请", title: "香港高才通与优才常见问题：申请、受养人、续签与永居 FAQ", meta: "18 个高频问题 · 2026年7月核对", tone: "guide-faq", href: "/guides/talent-application-faq" },
   { tag: "孩子", title: "香港建档完整流程：时间、材料与医院选择", meta: "15 分钟阅读 · 附清单", tone: "guide-orange" },
-  { tag: "生活", title: "第一次在香港租房：避坑指南与真实预算", meta: "10 分钟阅读 · 新手必读", tone: "guide-blue" },
+  { tag: "生活指南", title: "友邦和保诚，谁的分红兑现更稳定？从分红实现率看香港储蓄险", meta: "18 分钟阅读 · 2026年7月核对", tone: "guide-blue", href: "/guides/hong-kong-savings-insurance" },
 ];
 
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
     <main>
       <nav className="nav shell" aria-label="主导航">
         <a className="brand" href="#top" aria-label="HKLife 首页"><span className="brand-mark">H</span><span>HKLife<span className="brand-dot">.ai</span></span></a>
-        <div className="nav-links"><Link href="/guides/top-talent-pass-application">高/优才申请</Link><a href="#paths">生活指南</a><a href="#tools">实用工具</a><a href="#timeline">我的路线</a><a href="#community">社区</a></div>
+        <div className="nav-links"><Link href="/guides/top-talent-pass-application">高/优才申请</Link><Link href="/guides/hong-kong-savings-insurance">生活指南</Link><a href="#tools">实用工具</a><a href="#timeline">我的路线</a><a href="#community">社区</a></div>
         <div className="nav-actions"><button className="lang" aria-label="切换语言">中 / EN</button><a className="login" href="#join">登录</a><a className="nav-cta" href="#ai">问问 AI <span>↗</span></a></div>
       </nav>
 
@@ -70,7 +70,7 @@ export default function Home() {
       <section className="paths shell" id="paths">
         <div className="section-heading"><div><span className="section-kicker">EXPLORE HKLIFE</span><h2>你的香港生活，从这里开始</h2></div><p>不用读完一百篇帖子。选择你正在面对的事情，<br/>我们把下一步讲清楚。</p></div>
         <div className="path-grid">{paths.map((path, i) => <article className={`path-card ${path.color}`} key={path.title}>
-          <div className="path-top"><span className="path-icon">{path.icon}</span><span className="path-num">0{i + 1}</span></div><h3>{path.title}</h3><p>{path.desc}</p><div className="chips">{path.items.map((item) => <button onClick={() => setQuery(item)} key={item}>{item}</button>)}</div><a href="#guides">探索{path.title}指南 <span>→</span></a>
+          <div className="path-top"><span className="path-icon">{path.icon}</span><span className="path-num">0{i + 1}</span></div><h3>{path.title}</h3><p>{path.desc}</p><div className="chips">{path.items.map((item) => <button onClick={() => setQuery(item)} key={item}>{item}</button>)}</div><Link href={path.href}>探索{path.title}指南 <span>→</span></Link>
         </article>)}</div>
       </section>
 

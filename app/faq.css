@@ -29,6 +29,36 @@
 .talent-directory nav a b { font-size: 12px; line-height: 1.45; }
 .talent-directory nav a small { color: #8a9690; font-size: 8px; line-height: 1.5; }
 .talent-directory nav a i { padding-top: 1px; font-size: 10px; font-style: normal; opacity: .7; }
+.life-directory .talent-directory-heading span { color: #527d9a; }
+.life-directory .talent-directory-heading h2 { color: #193f56; }
+.life-directory nav a:hover { background: #edf5f9; color: #245b77; }
+.life-directory nav a.active { background: #e6f1f7; color: #174c68; box-shadow: inset 3px 0 #3f84a8; }
+.life-category { color: #2f6c8c; background: #e8f3f8; }
+.life-quick { background: #edf6fa; border-left-color: #3e86aa; }
+.life-quick > b { color: #245f7b; }
+.formula-card { display: grid; grid-template-columns: 112px minmax(0, 1fr) 24px minmax(0, 1fr); gap: 13px; align-items: center; margin: 24px 0; padding: 22px; border: 1px solid #d7e6ee; border-radius: 12px; background: #f7fbfd; }
+.formula-card span { color: #2f7293; font-size: 11px; font-weight: 800; letter-spacing: .5px; }
+.formula-card b { color: #244a5e; font-size: 12px; line-height: 1.5; }
+.formula-card i { color: #78a0b5; font-family: Georgia, serif; font-size: 19px; font-style: normal; text-align: center; }
+.source-caution { margin: 22px 0; padding: 19px 21px; border: 1px solid #e5dfca; border-radius: 11px; background: #fbf7e9; }
+.source-caution b { color: #6b5a27; font-size: 13px; }
+.source-caution p { margin: 5px 0 0; color: #6c6757; font-size: 12px; line-height: 1.75; }
+.source-caution.blue { border-color: #d7e6ee; background: #edf6fa; }
+.source-caution.blue b { color: #285f7a; }
+.source-caution.blue p { color: #587381; }
+.metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 22px 0; }
+.metric-grid > div { padding: 19px; border: 1px solid #dfe8e4; border-radius: 11px; background: #fbfdfc; }
+.metric-grid span { color: #6d9aaa; font-family: Georgia, serif; font-size: 10px; }
+.metric-grid b { display: block; margin: 4px 0; color: #274c5e; font-size: 13px; }
+.metric-grid p { margin: 0; color: #778580; font-size: 11px; line-height: 1.65; }
+.driver-list { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin: 23px 0; }
+.driver-list > div { padding: 18px; border-left: 3px solid #7ca8bb; background: #f5f9fb; }
+.driver-list b { color: #274f63; font-size: 13px; }
+.driver-list p { margin: 4px 0 0; color: #71828a; font-size: 11px; line-height: 1.65; }
+.buying-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin: 22px 0; padding: 0 !important; list-style: none; }
+.buying-steps li { display: grid; grid-template-columns: 31px 1fr; gap: 11px; align-items: start; margin: 0; padding: 17px; border: 1px solid #dbe7ed; border-radius: 10px; }
+.buying-steps span { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 50%; background: #e5f1f6; color: #347797; font-family: Georgia, serif; font-size: 9px; }
+.buying-steps p { margin: 1px 0 0; font-size: 12px; line-height: 1.65; }
 .faq-group { margin-top: 45px; }
 .faq-group > h2 { margin-bottom: 8px; }
 .faq-group-intro { color: #748079; font-size: 13px; }
@@ -52,6 +82,9 @@
   .talent-faq-arrow { grid-column: 2; }
   .faq-answer { padding-left: 0; margin-top: 12px; }
   .talent-directory nav { grid-template-columns: 1fr; }
+  .formula-card { grid-template-columns: 1fr; gap: 7px; }
+  .formula-card i { text-align: left; }
+  .metric-grid, .driver-list, .buying-steps { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {
