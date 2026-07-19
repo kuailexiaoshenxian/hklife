@@ -36,6 +36,9 @@ test("renders the full top talent pass application guide", async () => {
   assert.match(html, /A、B、C类条件、材料、费用与完整流程/);
   assert.match(html, /快速结论/);
   assert.match(html, /申请高才通需要多少钱/);
+  assert.match(html, /查询大学是否在高才通名单/);
+  assert.match(html, /200<\/b> 所大学/);
+  assert.match(html, /placeholder="例如：清华、Oxford、哈佛、UCL"/);
   assert.match(html, /香港入境事务处：高端人才通行证计划/);
   assert.match(html, /aria-label="高优才文章目录"/);
   assert.match(html, /aria-current="page"/);
