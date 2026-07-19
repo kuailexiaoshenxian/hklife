@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TalentGuideDirectory } from "../talent-guide-directory";
+import { UniversityChecker } from "./university-checker";
 
 export const metadata: Metadata = {
   title: "香港高才通怎么申请？A、B、C类条件、材料、费用与完整流程 | HKLife",
@@ -65,14 +66,14 @@ export default function TopTalentPassGuide() {
       <span className="article-category">高/优才申请</span>
       <h1>香港高才通怎么申请？<br/>A、B、C类条件、材料、费用与完整流程</h1>
       <p>面向准备申请香港高端人才通行证计划的人士，从资格判断到网上递交，把真正会影响申请结果的步骤一次讲清楚。</p>
-      <div className="article-meta"><span>HKLife 编辑部</span><span>·</span><span>2026年7月16日更新</span><span>·</span><span>约16分钟阅读</span></div>
+      <div className="article-meta"><span>HKLife 编辑部</span><span>·</span><span>2026年7月19日更新</span><span>·</span><span>约18分钟阅读</span></div>
     </header>
 
     <div className="article-layout">
       <aside className="article-toc" aria-label="文章目录"><b>本文目录</b><a href="#quick">快速结论</a><a href="#categories">A、B、C类怎么选</a><a href="#income">A类收入怎么算</a><a href="#university">大学是否合资格</a><a href="#documents">申请材料</a><a href="#steps">申请流程</a><a href="#fees">费用</a><a href="#after">获批后</a><a href="#mistakes">常见误区</a></aside>
 
       <article className="article-content">
-        <section className="quick-answer" id="quick"><b>快速结论</b><p>申请香港高才通，<strong>不需要提前获得香港公司的聘用</strong>。只要符合A、B、C三类资格之一，就可以通过香港政府网上系统递交。A类首次获批一般可在港逗留36个月，B类和C类一般为24个月。</p><small>本文政策核对至：2026年7月16日</small></section>
+        <section className="quick-answer" id="quick"><b>快速结论</b><p>申请香港高才通，<strong>不需要提前获得香港公司的聘用</strong>。只要符合A、B、C三类资格之一，就可以通过香港政府网上系统递交。A类首次获批一般可在港逗留36个月，B类和C类一般为24个月。</p><small>本文政策核对至：2026年7月19日</small></section>
 
         <h2 id="categories">先判断：你属于A、B还是C类？</h2>
         <p>高才通不是打分制。申请人需要明确选择一个申请类别，并提交对应证明。</p>
@@ -89,6 +90,7 @@ export default function TopTalentPassGuide() {
 
         <h2 id="university">B类和C类，怎样确认大学合资格？</h2>
         <p>判断时应直接查询申请当日的<a href="https://www.immd.gov.hk/pdf/aggregate_list.pdf" target="_blank" rel="noreferrer">合资格大学综合名单</a>，不要只看旧文章里的“世界百强”截图。</p>
+        <UniversityChecker />
         <ul><li>核心是符合要求的学士学位，名校硕士或博士不能替代不合资格的本科。</li><li>学历水平须相当于香港认可的学士学位；名誉学士学位不获接受。</li><li>合资格大学的持续教育学院、分校、延伸学院或附属学院学历，不一定获接受。</li><li>B类工作经验是毕业后累计的全职或自雇工作经验。</li><li>B类和C类还需提交认可第三方机构或颁授院校发出的学历认证文件，并提供在线验证资料。</li></ul>
 
         <div className="section-title-row"><h2 id="documents">开始申请前，需要准备哪些材料？</h2><a className="official-link" href={governmentApplicationUrl} target="_blank" rel="noreferrer">查看港府要求 <span>↗</span></a></div>
@@ -127,7 +129,7 @@ export default function TopTalentPassGuide() {
 
         <section className="checklist"><h2>申请前最后检查</h2>{["已确认自己属于A、B或C类","已核对最新合资格大学名单","学历、收入或工作资料可以正式核验","所有文件姓名、日期和数字一致","已准备申请费和获批后的签证签发费","已保存全部提交文件及申请编号"].map(item=><label key={item}><input type="checkbox"/> {item}</label>)}</section>
 
-        <section className="sources"><h2>官方来源</h2><p>本文仅提供公开政策和办事路径整理，不构成针对个人情况的法律意见。</p><ul>{officialSources.map(([title, url]) => <li key={url}><a href={url} target="_blank" rel="noreferrer">{title}</a><span>核对日期：2026年7月16日</span></li>)}</ul></section>
+        <section className="sources"><h2>官方来源</h2><p>本文仅提供公开政策和办事路径整理，不构成针对个人情况的法律意见。</p><ul>{officialSources.map(([title, url]) => <li key={url}><a href={url} target="_blank" rel="noreferrer">{title}</a><span>核对日期：2026年7月19日</span></li>)}</ul></section>
       </article>
     </div>
       </div>
